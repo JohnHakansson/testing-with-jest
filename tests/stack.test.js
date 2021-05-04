@@ -20,6 +20,6 @@ test("peek on stack with two or more elements returns the top element", () => {
 
 test("push should add the element first in the stack", () => {
   stack.push(42);
-  expect(stack.peek()).toBeUndefined();
+  expect(stack.peek()).toBeDefined();
   expect(stack.peek()).toBe(42);
 });

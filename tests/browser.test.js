@@ -49,6 +49,6 @@ describe("Clicking 'Vad finns överst på stacken?'", () => {
       .findElement(By.id("top_of_stack"))
       .getText();
     expect(peeked_value).toBeDefined();
-    expect(peeked_value).toEqual("Aenys");
+    expect(peeked_value).toEqual("Aegon");
   });
 });
