@@ -33,3 +33,22 @@ describe('Clicking "Pusha till stacken"', () => {
     await alert.accept();
   });
 });
+
+describe("Clicking 'Vad finns överst på stacken?'", () => {
+  it("should show the top most element in the span 'top_of_stack'", async () => {
+    //Lägger 'Aegon' högst upp i stacken
+    let push = await driver.findElement(By.id("push"));
+    await push.click();
+    let alert = await driver.switchTo().alert();
+    await alert.sendKeys("Aegon");
+    await alert.accept();
+
+    let peek = await driver.findElement(By.id("peek"));
+    peek.click();
+    let peeked_value = await driver
+      .findElement(By.id("top_of_stack"))
+      .getText();
+    expect(peeked_value).toBeDefined();
+    expect(peeked_value).toEqual("Aenys");
+  });
+});
